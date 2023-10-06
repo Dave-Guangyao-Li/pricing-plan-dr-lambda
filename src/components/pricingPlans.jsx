@@ -10,35 +10,71 @@ const pricingPlans = ({ pricingPlansData }) => {
       {pricingPlansData.map((plan) => (
         <div
           key={plan.title}
-          className={`w-[312px] h-[468px] p-6 rounded-md border justify-start items-start gap-6 ${
+          className={`w-[312px] h-[468px] p-6 rounded-md border flex-col inline-flex justify-start items-start gap-6  ${
             plan.title === 'Starter'
-              ? 'bg-blue-50 border-blue-200'
+              ? 'bg-indigo-50 border-violet-200'
               : plan.title === 'Plus'
-              ? 'bg-green-50 border-green-200'
+              ? 'bg-gradient-to-b from-blue-400 to-fuchsia-500 rounded-md border border-indigo-300'
               : plan.title === '* Pro'
-              ? 'bg-yellow-50 border-yellow-200'
+              ? 'bg-gradient-to-b from-violet-500 to-fuchsia-500'
               : plan.title === 'ENTERPRISE'
-              ? 'bg-red-50 border-red-200'
+              ? 'bg-neutral-50 border-gray-200'
               : '' // Add more conditions for other styles
           }`}
         >
-          <div className='text-xl font-semibold'>{plan.title}</div>
-          <div className='text-2xl font-bold'>{plan.price}</div>
-          <div className='text-gray-600'>{plan.frequency}</div>
-          <ul>
+          <div className='w-[163px] text-indigo-400 text-sm font-bold font-creato-bold uppercase leading-normal tracking-widest'>
+            {plan.title}
+          </div>
+          {/* <div className='text-xl font-semibold'>{plan.title}</div> */}
+          {/* <div className='text-2xl font-bold'>{plan.price}</div>
+          <div className='text-gray-600'>{plan.frequency}</div> */}
+          <div className='w-[264px] h-[108px] py-3 flex-col justify-center items-start inline-flex'>
+            <div className='w-[264px] text-blue-700 text-[40px] font-creato-bold leading-[48px] tracking-wide'>
+              {plan.price}
+            </div>
+            {plan.frequency !== undefined && plan.frequency !== '' ? ( // Check if plan has a non-empty frequency
+              <div className='w-[264px] text-indigo-50 text-sm font-normal font-creato-normal leading-9 tracking-wide'>
+                {plan.frequency}
+              </div>
+            ) : (
+              <div className='w-[264px] text-indigo-50 text-sm font-normal font-creato-normal leading-9 tracking-wide'>
+                <span className='invisible'>
+                  {plan.title === 'ENTERPRISE' ? '' : '/month'}
+                </span>
+              </div>
+            )}
+          </div>
+          <div className='w-[264px] h-[204px] py-2 flex-col justify-start items-start inline-flex'>
             {plan.features.map((feature, index) => (
-              <li key={index} className='text-gray-800'>
-                <li key={index} className='text-gray-800'>
-                  {plan.title === 'Starter' && <StarterIcon />}{' '}
-                  {/* Render the appropriate icon based on plan */}
-                  {plan.title === '* Pro' && <ProIcon />}
-                  {plan.title === 'Plus' && <PlusIcon />}
-                  {plan.title === 'ENTERPRISE' && <EnterpriseIcon />}
+              <div
+                key={index}
+                className='w-[259.26px] py-1.5 justify-start items-start inline-flex'
+              >
+                <div className='w-[20.74px] h-[20.74px] relative'>
+                  <div className='w-[20.74px] h-[20.74px] left-0 top-0 absolute'>
+                    {' '}
+                    <div
+                      className={`${
+                        plan.title === 'ENTERPRISE'
+                          ? 'w-[5.19px] h-[5.19px] left-[7.78px] top-[7.78px] absolute'
+                          : ''
+                      }`}
+                    >
+                      {plan.title === 'Starter' && <StarterIcon />}{' '}
+                      {/* Render the appropriate icon based on plan */}
+                      {plan.title === '* Pro' && <ProIcon />}
+                      {plan.title === 'Plus' && <PlusIcon />}
+                      {plan.title === 'ENTERPRISE' && <EnterpriseIcon />}
+                    </div>
+                  </div>
+                </div>
+                <div className="w-[238.52px] text-blue-700 text-sm font-medium font-['Creato Display'] leading-snug tracking-tight">
                   {feature}
-                </li>
-              </li>
+                </div>
+              </div>
             ))}
-          </ul>
+          </div>
+
           <button className='bg-blue-500 text-white px-4 py-2 rounded-md'>
             {plan.cta}
           </button>
