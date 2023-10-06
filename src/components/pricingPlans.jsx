@@ -1,3 +1,9 @@
+import StarterIcon from '../assets/free-item.svg?react' // Import your SVG icons for each plan
+import ProIcon from '../assets/pro-item.svg?react'
+import PlusIcon from '../assets/plus-item.svg?react'
+import EnterpriseIcon from '../assets/enterprise-item.svg?react'
+// import ReactIcon from '../assets/react.svg'
+
 const pricingPlans = ({ pricingPlansData }) => {
   return (
     <div className='pricing-options grid grid-cols-4 gap-8 mx-auto max-w-7xl'>
@@ -22,7 +28,14 @@ const pricingPlans = ({ pricingPlansData }) => {
           <ul>
             {plan.features.map((feature, index) => (
               <li key={index} className='text-gray-800'>
-                {feature}
+                <li key={index} className='text-gray-800'>
+                  {plan.title === 'Starter' && <StarterIcon />}{' '}
+                  {/* Render the appropriate icon based on plan */}
+                  {plan.title === '* Pro' && <ProIcon />}
+                  {plan.title === 'Plus' && <PlusIcon />}
+                  {plan.title === 'ENTERPRISE' && <EnterpriseIcon />}
+                  {feature}
+                </li>
               </li>
             ))}
           </ul>

@@ -54,7 +54,7 @@ export const pricingPlansYearlyData = [
   {
     title: 'Plus',
     price: '$8',
-    frequency: '/year',
+    frequency: '/month',
     features: [
       '100 credits a month',
       'Connect to GPT 4',
@@ -67,7 +67,7 @@ export const pricingPlansYearlyData = [
   {
     title: '* Pro',
     price: '$33',
-    frequency: '/year',
+    frequency: '/month',
     features: ['Unlimited usage', 'Direct customer support'],
     cta: 'Subscribe',
   },
