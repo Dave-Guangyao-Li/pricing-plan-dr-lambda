@@ -66,7 +66,7 @@ const pricingPlans = ({ pricingPlansData }) => {
               </div>
             )}
           </div>
-          <div className='w-[264px] h-[204px] py-2 flex-col justify-start items-start inline-flex'>
+          <div className='w-[264px] h-[204px] py-2 flex-col justify-start items-start inline-flex border-t-2'>
             {plan.features.map((feature, index) => (
               <div
                 key={index}
