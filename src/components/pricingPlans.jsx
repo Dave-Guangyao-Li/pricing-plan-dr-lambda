@@ -114,7 +114,7 @@ const pricingPlans = ({ pricingPlansData }) => {
                 : plan.title === 'Starter' || plan.title === 'ENTERPRISE'
                 ? 'bg-indigo-500'
                 : plan.title === 'Plus'
-                ? 'text-gray-700'
+                ? 'bg-gradient-to-r from-purple-600 to-fuchsia-600'
                 : '' // Add more conditions for other styles
             }`}
           >
