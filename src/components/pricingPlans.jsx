@@ -6,7 +6,7 @@ import EnterpriseIcon from '../assets/enterprise-item.svg?react'
 
 const pricingPlans = ({ pricingPlansData }) => {
   return (
-    <div className='pricing-options grid grid-cols-4 gap-8 mx-auto max-w-7xl'>
+    <div className='pricing-options grid grid-cols-4 gap-1 mx-auto max-w-7xl'>
       {pricingPlansData.map((plan) => (
         <div
           key={plan.title}
@@ -68,16 +68,18 @@ const pricingPlans = ({ pricingPlansData }) => {
                     </div>
                   </div>
                 </div>
-                <div className="w-[238.52px] text-blue-700 text-sm font-medium font-['Creato Display'] leading-snug tracking-tight">
+                <div className='w-[238.52px] text-blue-700 text-sm font-medium font-creato-medium leading-snug tracking-[0.0175rem]'>
                   {feature}
                 </div>
               </div>
             ))}
           </div>
 
-          <button className='bg-blue-500 text-white px-4 py-2 rounded-md'>
-            {plan.cta}
-          </button>
+          <div className='w-[260px] h-10 px-[15.56px] py-[5.19px] bg-indigo-500 rounded-[8.90px] justify-center items-center gap-[11.13px] inline-flex'>
+            <div className='w-[228px] text-center text-zinc-100 text-base font-medium font-creato-medium leading-normal tracking-tight'>
+              {plan.cta}
+            </div>
+          </div>
         </div>
       ))}
     </div>
