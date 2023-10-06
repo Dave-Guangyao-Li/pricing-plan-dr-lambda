@@ -22,14 +22,36 @@ const pricingPlans = ({ pricingPlansData }) => {
               : '' // Add more conditions for other styles
           }`}
         >
-          <div className='w-[163px] text-indigo-400 text-sm font-bold font-creato-bold uppercase leading-normal tracking-widest'>
+          <div
+            className={`w-[163px] text-sm font-bold font-creato-medium uppercase leading-normal tracking-widest ${
+              plan.title === 'Starter'
+                ? 'text-indigo-400'
+                : plan.title === 'Plus'
+                ? 'text-neutral-50'
+                : plan.title === '* Pro'
+                ? 'text-neutral-50'
+                : plan.title === 'ENTERPRISE'
+                ? 'text-neutral-800'
+                : '' // Add more conditions for other styles
+            }`}
+          >
             {plan.title}
           </div>
           {/* <div className='text-xl font-semibold'>{plan.title}</div> */}
           {/* <div className='text-2xl font-bold'>{plan.price}</div>
           <div className='text-gray-600'>{plan.frequency}</div> */}
           <div className='w-[264px] h-[108px] py-3 flex-col justify-center items-start inline-flex'>
-            <div className='w-[264px] text-blue-700 text-[40px] font-creato-bold leading-[48px] tracking-wide'>
+            <div
+              className={`w-[264px] text-[40px] font-creato-bold leading-[48px] tracking-wide ${
+                plan.title === 'Starter'
+                  ? 'text-blue-700'
+                  : plan.title === '* Pro' || plan.title === 'Plus'
+                  ? 'text-neutral-50'
+                  : plan.title === 'ENTERPRISE'
+                  ? 'text-gray-400'
+                  : '' // Add more conditions for other styles
+              }`}
+            >
               {plan.price}
             </div>
             {plan.frequency !== undefined && plan.frequency !== '' ? ( // Check if plan has a non-empty frequency
@@ -68,14 +90,34 @@ const pricingPlans = ({ pricingPlansData }) => {
                     </div>
                   </div>
                 </div>
-                <div className='w-[238.52px] text-blue-700 text-sm font-medium font-creato-medium leading-snug tracking-[0.0175rem]'>
+                <div
+                  className={`w-[238.52px] text-sm font-creato-regular leading-snug tracking-[0.0175rem] ${
+                    plan.title === 'Starter'
+                      ? 'text-blue-700'
+                      : plan.title === 'Plus' || plan.title === '* Pro'
+                      ? 'text-zinc-100'
+                      : plan.title === 'ENTERPRISE'
+                      ? 'text-gray-700'
+                      : '' // Add more conditions for other styles
+                  }`}
+                >
                   {feature}
                 </div>
               </div>
             ))}
           </div>
 
-          <div className='w-[260px] h-10 px-[15.56px] py-[5.19px] bg-indigo-500 rounded-[8.90px] justify-center items-center gap-[11.13px] inline-flex'>
+          <div
+            className={`w-[260px] h-10 px-[15.56px] py-[5.19px]  rounded-[8.90px] justify-center items-center gap-[11.13px] inline-flex ${
+              plan.title === '* Pro'
+                ? 'bg-gradient-to-r from-fuchsia-600 to-fuchsia-600'
+                : plan.title === 'Starter' || plan.title === 'ENTERPRISE'
+                ? 'bg-indigo-500'
+                : plan.title === 'Plus'
+                ? 'text-gray-700'
+                : '' // Add more conditions for other styles
+            }`}
+          >
             <div className='w-[228px] text-center text-zinc-100 text-base font-medium font-creato-medium leading-normal tracking-tight'>
               {plan.cta}
             </div>
